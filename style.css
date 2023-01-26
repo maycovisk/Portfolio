@@ -3,10 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,900;1,200;1,600&family=Ubuntu:wght@400;500&display=swap');
 
 :root{
-    --cor0:#00804b;
+    /*--cor0:#00804b;*/
+    --cor0:#4b2a99;
     --cor1:#fff;
     --cor2:#111;
     --cor3:#222;
+    --cor4:#ccc;
 
     --fonte-padrao: sans-serif;
     --fonte-destaque: 'Roboto', sans-serif;
@@ -157,18 +159,19 @@ section .title::after{
     padding: 5px;
     transform: translateX(-50%);
 }
-
-/*..Sessão..Sobre..*/
-.about, .services{
+.about, .services, .skills, .teams{
     font-family: var(--fonte-destaque);
 }
 .about .about-content,
-.services .serv-content{
+.services .serv-content,
+.skills .skills-content{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
+
+/*..Sessão..Sobre..*/
 .about .title::after{
     content: "Quem sou eu";
 }
@@ -213,14 +216,16 @@ section .title::after{
 }
 
 /*..Sessã..Serviços..*/
-.services{
+.services, .teams{
     background: var(--cor2);
     color: var(--cor1);
 }
-.services .title::before{
+.services .title::before,
+.teams .title::before{
     background: var(--cor1);
 }
-.services .title::after{
+.services .title::after,
+.teams .title::after{
     background: var(--cor2);
     content: "Que oferecemos";
 }
@@ -233,6 +238,9 @@ section .title::after{
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.services .serv-content .card:hover{
+    background: var(--cor0);
+}
 .services .serv-content .card .box{
     transition: all 0.3s ease;
 }
@@ -243,11 +251,130 @@ section .title::after{
     font-size: 70px;
     color: var(--cor0);
 }
+.services .serv-content .card:hover ion-icon{
+    color: var(--cor1);
+}
 .services .serv-content .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
+
+/*..Sessão..escialidades..*/
+.skills .title::after{
+    content: "Que faço";
+}
+.skills .skills-content .column{
+    width: calc(50% - 30px);
+}
+.skills .skills-content .left .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.skills .skills-content .left p{
+    text-align: justify;
+}
+.skills .skills-content .left a{
+    display: inline-block;
+    background: var(--cor0);
+    color: var(--cor1);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--cor0);
+    transition: all 0.3s ease;
+}
+.skills .skills-content .left a:hover{
+    color: var(--cor0);
+    background: none;
+}
+.skills .skills-content .right .bars{
+    margin-bottom: 15px;
+}
+.skills .skills-content .right .bars .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.skills .skills-content .right span{
+    font-weight: 500;
+    font-size: 18px;
+}
+.skills .skills-content .right .line{
+    width: 100%;
+    height: 5px;
+    background: var(--cor4);
+    position: relative;
+}
+.skills .skills-content .right .line::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--cor0);
+}
+.skills .skills-content .right .html::before{
+    width: 35%;
+}
+.skills .skills-content .right .css::before{
+    width: 30%;
+}
+.skills .skills-content .right .js::before{
+    width: 30%;
+}
+.skills .skills-content .right .ccpp::before{
+    width: 70%;
+}
+.skills .skills-content .right .sql::before{
+    width: 80%;
+}
+.skills .skills-content .right .py::before{
+    width: 50%;
+}
+
+/*..Sessão..Equipe..*/
+.teams .title::after{
+    content: "Especializada";
+    color: var(--cor0);
+}
+.teams .carousel .card{
+    background: var(--cor3);
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card:hover{
+    background: var(--cor0);
+}
+.teams .carousel .card img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--cor0);
+    transition: all 0.3s ease;
+}
+.teams .carousel .card:hover img{
+    border-color: var(--cor1);
+}
+.teams .carousel .card .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.teams .carousel .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+
+
 
 /*..responsivo..*/
 @media (max-width: 1300px){
@@ -318,6 +445,14 @@ section .title::after{
     .about .about-content .right{
         flex: 100%;
     }
+    .services .serv-content .card{
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+    .skills .skills-content .column{
+        width: 100%;
+        margin-bottom: 35px;
+    }
 }
 @media (max-width: 690px){
     .home .home-content .text-2{
@@ -329,13 +464,8 @@ section .title::after{
     .home .home-content a{
         font-size: 20px;
     }
-}
-@media (max-width: 690px){
-    .home .home-content .text-2{
-        font-size: 60px;
-    }
-    .home .home-content .text-3{
-        font-size: 32px;
+    .services .serv-content .card{
+        width: 100%;
     }
 }
 @media (max-width: 500px){
@@ -346,3 +476,5 @@ section .title::after{
         font-size: 27px;
     }
 }
+
+
