@@ -22,6 +22,9 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+html{
+    scroll-behavior: smoth;
+}
 .max-width{
     max-width: 1300px;
     padding: 0 80px;
@@ -145,11 +148,11 @@
     transition: all 0.3s ease;
 }
 .scroll-up-btn.show{
-    bottom: 30px;
     opacity: 1;
-    pointer-events:auto;
-    
+    pointer-events: auto;
+    bottom: 30px;
 }
+
 
 /*..Todos..os..codigos..similares..*/
 section{
@@ -616,6 +619,9 @@ footer span a:hover{
     .contact .contact-content .column{
         width: 100%;
         margin-bottom: 35px;
+    }
+    footer{
+        margin-top: 15px;
     }
 }
 @media (max-width: 690px){
